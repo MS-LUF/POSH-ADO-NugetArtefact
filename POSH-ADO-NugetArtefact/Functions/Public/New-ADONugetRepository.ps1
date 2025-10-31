@@ -61,13 +61,13 @@ Function New-ADONugetRepository {
         [ValidateNotNullorempty()]
             [string]$APIKeyName,
         [parameter(Mandatory=$true)]
-        [ValidatePattern("^\w*$")]
+        [ValidatePattern("^[a-zA-Z0-9-]+$")]
             [string]$ProjectName,
         [parameter(Mandatory=$true)]
-        [ValidatePattern("^\w*$")]
+        [ValidatePattern("^[a-zA-Z0-9-]+$")]
             [string]$OrganizationName,
         [parameter(Mandatory=$true)]
-        [ValidatePattern("^\w*$")]
+        [ValidatePattern("^[a-zA-Z0-9-]+$")]
             [string]$FeedName,
         [parameter(mandatory=$false)]
             [switch]$AllowInsecureConnections
@@ -82,8 +82,11 @@ Function New-ADONugetRepository {
                 } else {
                     throw "invalid VSS_NUGET_EXTERNAL_FEED_ENDPOINTS env variable, password property is missing in the json content"
                 }
+            } elseif (test-path env:VSS_NUGET_ACCESSTOKEN) {
+                write-verbose -message "Azure DevOps server VSS_NUGET_ACCESSTOKEN env variable found, autodiscovering PAT"
+                $APIKey = $env:VSS_NUGET_ACCESSTOKEN
             } else {
-                throw "Please set APIKey parameter, VSS_NUGET_EXTERNAL_FEED_ENDPOINTS env variable not found"
+                throw "Please set APIKey parameter, VSS_NUGET_EXTERNAL_FEED_ENDPOINTS and VSS_NUGET_ACCESSTOKEN env variable not found"
             }    
         }
         if (!($ServerName)) {

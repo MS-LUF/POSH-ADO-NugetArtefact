@@ -12,7 +12,7 @@
 RootModule = 'POSH-ADO-NugetArtefact.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.5.0'
+ModuleVersion = '0.5.5'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -88,6 +88,7 @@ VariablesToExport = '*'
 
 # List of all files packaged with this module
 FileList = @(
+    '.\changelog.md',
     '.\POSH-ADO-NugetArtefact.psm1',
     '.\POSH-ADO-NugetArtefact.psd1',
     '.\Functions\Internal\Convert-ADONugetRepositoryPackage.ps1',
@@ -129,7 +130,7 @@ PrivateData = @{
         IconUri = 'https://www.lucas-cueff.com/files/gallery.png'
 
         # ReleaseNotes of this module
-        ReleaseNotes = "first beta release of POSH-ADO-NugetArtefact PWSH module"
+        ReleaseNotes = "See changelog.md included"
 
     } # End of PSData hashtable
 

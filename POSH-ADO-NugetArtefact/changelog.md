@@ -1,5 +1,3 @@
-![image](https://www.lucas-cueff.com/files/gallery.png)
-
 # POSH-ADO-NugetArtefact
 Standalone PowerShell module managing Nuget packages from an Azure DevOPS or Azure DevOPS Server (ADO) artifact manager
 
@@ -20,40 +18,3 @@ Main features available :
 - add management of env variable *VSS_NUGET_ACCESSTOKEN* to auto detect Nuget API key available on Azure Devops Server Agent when available (Set-ADONugetRepository, New-ADONugetRepository)
 ### version (0.5.0) - first public version :
 - first beta public version
-
-## install from PowerShell Gallery repository
-You can easily install it from powershell gallery repository
-https://www.powershellgallery.com/packages/POSH-ADO-NugetArtefact/
-using a simple powershell command and an internet access :-) 
-```
-	Install-Module -Name POSH-ADO-NugetArtefact
-```
-## module content
-### public function (available as PowerShell cmdlet)
-- Clear-ADONugetRepository
-- Export-ADONugetRepository
-- Get-ADONugetRepository
-- Get-ADONugetRepositoryPackage
-- Import-ADONugetRepository
-- New-ADONugetRepository
-- Publish-ADONugetRepositoryPackage
-- Remove-ADONugetRepository
-- Remove-ADONugetRepositoryPackage
-- Set-ADONugetRepository
-- Update-ADONugetRepository
-### private function
-- Convert-ADONugetRepositoryPackage
-- Enable-SkipCertificateChainControlPolicy
-- Get-ASTfromFile
-- Get-PSFunctionFromAST
-- Get-ScriptDirectory
-- Invoke-ADOAPI
-- Resolve-ADONugetID
-- Test-ADONugetRepository
-
-## help and how to
-- directly available from powershell using `Get-Help`
-
-## working platform
-- working on both Linux/Unix/Mac and WinNt systems
-- working on Windows PowerShell and PowerShell (core)
