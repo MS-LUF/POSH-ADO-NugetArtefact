@@ -15,7 +15,11 @@ Main features available :
 - Remove an existing NuGet Package from your your ADO Nuget Feed Artifact
 
 ## Changelog
-### version (0.5.5) - last public version :
+### version (0.5.6) - last public version :
+- add SourceName parameter alias (Remove-ADONugetRepositoryPackage, Publish-ADONugetRepositoryPackage, Get-ADONugetRepositoryPackage)
+- switch SourceName parameter to optional - not mandatory (Update-ADONugetRepository)
+- add action alias 'download' for 'install' (Get-ADONugetRepositoryPackage)
+### version (0.5.5) :
 - improve regex on several cmdlet to allow dash usage (Set-ADONugetRepository, New-ADONugetRepository)
 - add management of env variable *VSS_NUGET_ACCESSTOKEN* to auto detect Nuget API key available on Azure Devops Server Agent when available (Set-ADONugetRepository, New-ADONugetRepository)
 ### version (0.5.0) - first public version :

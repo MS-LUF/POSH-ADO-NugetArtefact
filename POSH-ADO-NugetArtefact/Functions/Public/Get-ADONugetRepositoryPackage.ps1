@@ -51,13 +51,14 @@ Function Get-ADONugetRepositoryPackage {
     [cmdletbinding()]
     param(
         [parameter(Mandatory=$true,Position=0)]
-        [ValidateSet("install","search")]
+        [ValidateSet("download","install","search")]
             [string]$Action,
         [parameter(Mandatory=$false,Position=1)]
         [ValidateNotNullOrEmpty()]
             [string]$PackageName,
         [parameter(Mandatory=$false,Position=3)]
         [ValidateNotNullOrEmpty()]
+        [Alias("SourceName")]
             [string]$PackageSource,
         [parameter(Mandatory=$false,Position=2)]
         [ValidateNotNullOrEmpty()]
@@ -86,6 +87,12 @@ Function Get-ADONugetRepositoryPackage {
         }
         switch ($Action) {
             "install" {
+                if (!($OutputDirectory)) {
+                    $OutputDirectory = Get-ScriptDirectory
+                }
+                Invoke-ADOAPI -SourceName $PackageSource -NugetAPI download -PackageName $PackageName -PackageVersion $PackageVersion -OutputDirectory $OutputDirectory
+            }
+            "download" {
                 if (!($OutputDirectory)) {
                     $OutputDirectory = Get-ScriptDirectory
                 }

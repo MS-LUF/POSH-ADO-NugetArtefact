@@ -26,10 +26,11 @@ Function Publish-ADONugetRepositoryPackage {
     param(
         [parameter(Mandatory=$true,Position=1)]
         [ValidateNotNullOrEmpty()]
-        [string]$PackageFile,
+            [string]$PackageFile,
         [parameter(Mandatory=$false,Position=2)]
         [ValidateNotNullOrEmpty()]
-        [string]$PackageSource
+        [Alias("SourceName")]
+            [string]$PackageSource
     )
     process {
         Test-ADONugetRepository | out-null

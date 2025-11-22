@@ -29,13 +29,14 @@ Function Remove-ADONugetRepositoryPackage {
     param(
         [parameter(Mandatory=$true,Position=1)]
         [ValidateNotNullOrEmpty()]
-        [string]$PackageName,
+            [string]$PackageName,
         [parameter(Mandatory=$true,Position=2)]
         [ValidateNotNullOrEmpty()]
-        [string]$PackageVersion,
+            [string]$PackageVersion,
         [parameter(Mandatory=$false,Position=2)]
         [ValidateNotNullOrEmpty()]
-        [string]$PackageSource
+        [Alias("SourceName")]
+            [string]$PackageSource
     )
     process {
         Test-ADONugetRepository | out-null

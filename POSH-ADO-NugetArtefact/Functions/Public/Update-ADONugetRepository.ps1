@@ -22,13 +22,16 @@ Function Update-ADONugetRepository {
 #>
     [cmdletbinding()]
     param(
-        [parameter(Mandatory=$true)]
+        [parameter(Mandatory=$false)]
         [ValidateNotNullorempty()]
             [string]$SourceName
     )
     process {
-        if (!($global:ADONugetConfig)) {
-            throw "please import or create a new source repository using Import-ADONugetRepository or New-ADONugetRepository cmdlets"
+        Test-ADONugetRepository | out-null
+        if (!($SourceName) -and ($global:ADONugetConfig.count -gt 1)) {
+            throw "Please provide a valid Repository Source using SourceName Parameter"
+        } elseif (!($SourceName) -and ($global:ADONugetConfig.count -eq 1)) {
+            $SourceName = $global:ADONugetConfig.repositoryname
         }
         $tempids = Resolve-ADONugetID -SourceName $SourceName
         if ($global:ADONugetConfig.RepositoryName -contains $SourceName) {
